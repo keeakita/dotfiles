@@ -1,48 +1,54 @@
-"Load plugin manager
+" Disable YouCompleteMe if our version doesn't support it
+if v:version < 703 || (v:version == 703 && ! has("patch584"))
+  let g:pathogen_disabled = [ "YouCompleteMe" ]
+endif
+
+" Load plugin manager
 call pathogen#infect()
 call pathogen#helptags()
 
-"Eclim needs this for autocomplete
+
+" Eclim needs this for autocomplete
 filetype plugin indent on
 
-"Colors!
+" Colors!
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
 endif
 syntax enable
 colo wombat256mod
 
-"Show line numbers
+" Show line numbers
 set nu
 
-"General Indentation Settings
+" General Indentation Settings
 set autoindent
 set shiftwidth=4
 set expandtab
 set softtabstop=4
-"Sometimes we only want 2 spaces for tabs
+" Sometimes we only want 2 spaces for tabs
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType sass setlocal shiftwidth=2 softtabstop=2
 autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
 
-"Line wrapping in code is bad, mkay?
+" Line wrapping in code is bad, mkay?
 set nowrap
 
-"Key bindings
+" Key bindings
 map <F6> :tabp<enter>
 map <F7> :tabn<enter>
 
-"Notes setting
+" Notes setting
 let g:notes_directory = '~/Documents/Notes/'
 
-"Command to insert date
+" Command to insert date
 :command Date :r !date +\%Y-\%m-\%d
 
-"Stuff from that rails vim site
-"http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
-"-------------------------------------------------------------------------------
+" Stuff from that rails vim site
+" http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
+" -------------------------------------------------------------------------------
 filetype on  " Automatically detect file types.
 set nocompatible  " We don't want vi compatibility.
 
@@ -61,8 +67,8 @@ let g:miniBufExplModSelTarget = 1
 let g:rails_default_file='config/database.yml'
 
 set cf  " Enable error files & error jumping.
-"-------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------
 
-"Lets OpenURL stuff happen in the Rails plugin
-:command -bar -nargs=1 OpenURL :!chromium <args>
+" Lets OpenURL stuff happen in the Rails plugin
+:command -bar -nargs=1 OpenURL :!firefox <args>
 
