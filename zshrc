@@ -40,7 +40,7 @@ ZSH_THEME="blinks_custom"
 plugins=(git tmux vi-mode)
 
 # Add stuff based on distro
-if [ -f /etc/os-release ] && cat /etc/os-release | grep 'ID=ubuntu'; then
+if [ -f /etc/os-release ] && cat /etc/os-release | grep 'ID=ubuntu' > /dev/null 2>&1; then
     plugins+=(command-not-found debian)
 elif command -v pacman > /dev/null 2>&1; then
     plugins+=(archlinux systemd)
