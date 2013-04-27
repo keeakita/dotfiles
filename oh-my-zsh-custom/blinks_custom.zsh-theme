@@ -18,13 +18,22 @@ case ${SOLARIZED_THEME:-dark} in
     *)     bkg=black;;
 esac
 
+# Change the prompt color based on our host
+case "$HOST" in
+    rainbow-dash) HOSTCOLOR="cyan" ;;
+    big-mac) HOSTCOLOR="red" ;;
+    rarity) HOSTCOLOR="white" ;;
+    twilight-sparkle) HOSTCOLOR="magenta" ;;
+    *) HOSTCOLOR="white" ;;
+esac
+
 ZSH_THEME_GIT_PROMPT_PREFIX=" [%{%B%F{blue}%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{%f%k%b%K{${bkg}}%B%F{green}%}]"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{%F{red}%}*%{%f%k%b%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 PROMPT='%{%f%k%b%}
-%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_prompt_info)%E%{%f%k%b%}
+%{%K{${bkg}}%B%F{green}%}%n%{%B%F{white}%}@%{%B%F{${HOSTCOLOR}}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_prompt_info)%E%{%f%k%b%}
 %{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
 
 # RPROMPT='!%{%B%F{cyan}%}%!%{%f%k%b%}'
