@@ -37,7 +37,21 @@ ZSH_THEME="blinks_custom"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git archlinux gem rails3 rvm systemd tmux vi-mode)
+plugins=(git tmux vi-mode)
+
+# Add stuff based on distro
+if [ -f /etc/os-release ] && cat /etc/os-release | grep 'ID=ubuntu'; then
+    plugins+=(command-not-found debian)
+elif command -v pacman > /dev/null 2&>1; then
+    plugins+=(archlinux systemd)
+elif [ -f /etc/redhat-release ]; then
+    plugins+=(yum)
+fi
+
+# RVM only if we have it
+if command -v rvm > /dev/null 2&>1; then
+    plguins+=(gem rails3 rvm)
+fi
 
 # Change the custom path for oh-my-zsh to make git management easier
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
