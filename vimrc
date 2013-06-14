@@ -36,9 +36,9 @@ autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
 " Line wrapping in code is bad, mkay?
 set nowrap
 
-" Key bindings
-map <F6> :tabp<enter>
-map <F7> :tabn<enter>
+" Tab key bindings
+map <F5> :tabp<enter>
+map <F6> :tabn<enter>
 
 " Notes setting
 let g:notes_directory = '~/Documents/Notes/'
