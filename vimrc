@@ -72,3 +72,14 @@ set cf  " Enable error files & error jumping.
 " Lets OpenURL stuff happen in the Rails plugin
 :command -bar -nargs=1 OpenURL :!firefox <args>
 
+" Toggle between absolute and relative numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
