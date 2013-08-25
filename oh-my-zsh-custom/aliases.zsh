@@ -26,3 +26,5 @@ alias MischiefManaged='switch_hosts free'
 alias pootis='for i in {1..10}; do echo "POOTIS"; done'
 alias stahp='echo $USER; sleep .75; echo "wat r u doing"; sleep .75; echo $USER; sleep .75; echo "stahp"'
 
+# common mistakes
+alias vp='cp'
