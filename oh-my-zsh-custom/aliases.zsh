@@ -4,8 +4,10 @@ alias cls="clear;ls"
 # Take ownership of file or directory
 alias mine="sudo chown -R $(whoami):$(whoami)"
 
-# Connect to stdlinux
-alias stdlinux='ssh osler@stdlinux.cse.ohio-state.edu'
+# SSH shortcuts
+alias stdlinux='ssh osler@stdlinux.cse.ohio-state.edu -t zsh'
+alias stallman='ssh osler@stallman.cse.ohio-state.edu -t zsh'
+alias idle2='ssh osler@opensource.osu.edu -t "tmux a || tmux new-session weechat-curses"'
 
 # Because I like vim
 alias :q="exit"
