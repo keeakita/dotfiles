@@ -40,9 +40,6 @@ set nowrap
 map <F5> :tabp<enter>
 map <F6> :tabn<enter>
 
-" Notes setting
-let g:notes_directory = '~/Documents/Notes/'
-
 " Command to insert date
 :command Date :r !date +\%Y-\%m-\%d
 
@@ -60,8 +57,6 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-
-" alt+n or alt+p to navigate between entries in QuickFix
 
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
@@ -82,4 +77,10 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" Fix backspace on some platforms
+set bs=2
+
+" Make tab completion work more like zsh
+set wildmode=longest,list
 
