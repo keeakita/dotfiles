@@ -33,3 +33,6 @@ setopt histignoredups
 # allows comments in commands
 setopt interactivecomments
 
+# correct only commands, not directories
+unsetopt correct_all
+setopt correct
