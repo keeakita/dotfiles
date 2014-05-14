@@ -7,7 +7,7 @@ alias svim="EDITOR=vim sudoedit"
 # SSH shortcuts
 alias stdlinux='ssh osler@stdlinux.cse.ohio-state.edu -t zsh'
 alias stallman='ssh osler@stallman.cse.ohio-state.edu -t zsh'
-alias idle2='ssh osler@opensource.osu.edu -t "tmux a || tmux new-session weechat-curses"'
+alias idle2='ssh william@oslers.us -t "tmux attach-session -t weechat || tmux new-session -s weechat weechat-curses"'
 
 # Because I like vim
 alias :q="exit"
