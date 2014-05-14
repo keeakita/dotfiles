@@ -7,7 +7,6 @@ endif
 call pathogen#infect()
 call pathogen#helptags()
 
-
 " Eclim needs this for autocomplete
 filetype plugin indent on
 
@@ -40,7 +39,7 @@ autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
 " Make vim highlight *.md files as markdown instead of modula
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Line wrapping in code is bad, mkay?
+" Line wrapping in code is bad
 set nowrap
 
 " Tab key bindings
@@ -82,7 +81,6 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-
 nnoremap <C-n> :call NumberToggle()<cr>
 
 " Fix backspace on some platforms
@@ -93,3 +91,6 @@ set wildmode=longest,list
 
 " In case we forgot to open vim with sudo, we can still save it as root
 cmap w!! w !sudo tee > /dev/null %
+
+" Show where we are in the file at the bottom right
+set ruler

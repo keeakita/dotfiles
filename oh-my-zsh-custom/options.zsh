@@ -36,3 +36,6 @@ setopt interactivecomments
 # correct only commands, not directories
 unsetopt correct_all
 setopt correct
+
+# Don't try to autocomplete a home directory
+setopt nocdablevars

@@ -30,3 +30,9 @@ alias stahp='echo $USER; sleep .75; echo "wat r u doing"; sleep .75; echo $USER;
 
 # common mistakes
 alias vp='cp'
+alias grpe='grep'
+
+# git
+alias gitroot='cd "$(git rev-parse --show-toplevel)"'
+
+alias mvnfast='mvn install -DskipTests -DskipDbDeploy';
