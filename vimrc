@@ -11,6 +11,9 @@ call pathogen#helptags()
 " Eclim needs this for autocomplete
 filetype plugin indent on
 
+" Make Eclim and YouCompleteMe play nice
+let g:EclimCompletionMethod = 'omnifunc'
+
 " Colors!
 if $COLORTERM == 'gnome-terminal'
   set t_Co=256
@@ -26,12 +29,16 @@ set autoindent
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+
 " Sometimes we only want 2 spaces for tabs
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType sass setlocal shiftwidth=2 softtabstop=2
 autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
+
+" Make vim highlight *.md files as markdown instead of modula
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Line wrapping in code is bad, mkay?
 set nowrap
@@ -83,3 +90,5 @@ endfunc
 
 nnoremap <C-n> :call NumberToggle()<cr>
 
+" In case we forgot to open vim with sudo, we can still save it as root
+cmap w!! w !sudo tee > /dev/null %

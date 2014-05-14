@@ -1,8 +1,8 @@
-# Clear the screen then run `ls`
-alias cls="clear;ls"
-
 # Take ownership of file or directory
 alias mine="sudo chown -R $(whoami):$(whoami)"
+
+# Vim as root
+alias svim="EDITOR=vim sudoedit"
 
 # SSH shortcuts
 alias stdlinux='ssh osler@stdlinux.cse.ohio-state.edu -t zsh'
