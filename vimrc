@@ -98,3 +98,7 @@ set ruler
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+
+" Vim Airline things
+let g:airline_powerline_fonts = 1 " Fancy arrows
+set laststatus=2 "show bar by default
