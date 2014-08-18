@@ -55,6 +55,7 @@ fi
 
 # Change the custom path for oh-my-zsh to make git management easier
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
+DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 

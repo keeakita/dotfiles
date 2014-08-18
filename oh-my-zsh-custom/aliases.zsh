@@ -7,7 +7,6 @@ alias svim="EDITOR=vim sudoedit"
 # SSH shortcuts
 alias stdlinux='ssh osler@stdlinux.cse.ohio-state.edu -t zsh'
 alias stallman='ssh osler@stallman.cse.ohio-state.edu -t zsh'
-alias idle2='ssh william@oslers.us -t "tmux attach-session -t weechat || tmux new-session -s weechat weechat-curses"'
 
 # Because I like vim
 alias :q="exit"
@@ -17,7 +16,7 @@ alias tmux="tmux -2"
 alias ls="ls --color=auto -h --group-directories-first"
 alias la="ls -A --color=auto -h --group-directories-first"
 alias ll="ls -lA --color=auto -h --group-directories-first"
-alias du="du -hs"
+alias du="du -h"
 alias df="df -h"
 
 # Productivity
@@ -34,5 +33,7 @@ alias grpe='grep'
 
 # git
 alias gitroot='cd "$(git rev-parse --show-toplevel)"'
-
 alias mvnfast='mvn install -DskipTests -DskipDbDeploy';
+
+# Get size files in just this dir
+alias dirsize='find ./ -maxdepth 1 -exec du -hs {} \; | sort -hr'
