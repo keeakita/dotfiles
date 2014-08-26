@@ -33,6 +33,7 @@ alias grpe='grep'
 
 # git
 alias gitroot='cd "$(git rev-parse --show-toplevel)"'
+alias groot='echo "I am Groot."; cd "$(git rev-parse --show-toplevel)"'
 alias mvnfast='mvn install -DskipTests -DskipDbDeploy';
 
 # Get size files in just this dir
