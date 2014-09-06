@@ -102,3 +102,18 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " Vim Airline things
 let g:airline_powerline_fonts = 1 " Fancy arrows
 set laststatus=2 "show bar by default
+
+" CSE 2421 heading for files
+function FileHeading()
+  let s:line=line(".")
+  call setline(s:line, '/*')
+  call append(s:line,  ' * '.expand('%:t'))
+  call append(s:line+1,' *')
+  call append(s:line+2,' * Created by William Osler on '.strftime("%Y-%m-%d"))
+  call append(s:line+3,' * CSE 2421')
+  call append(s:line+4,' * 0x05194C41')
+  call append(s:line+5,' */')
+  unlet s:line
+endfunction
+
+command FileHeading :exec FileHeading()

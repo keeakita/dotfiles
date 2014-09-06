@@ -4,6 +4,7 @@ export SHELL="/bin/zsh"
 
 # Set the default text editor.
 export EDITOR="vim"
+export VISUAL="vim"
 
 export BROWSER="firefox"
 
