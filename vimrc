@@ -110,7 +110,7 @@ function FileHeading()
   call append(s:line,  ' * '.expand('%:t'))
   call append(s:line+1,' *')
   call append(s:line+2,' * Created by William Osler on '.strftime("%Y-%m-%d"))
-  call append(s:line+3,' * CSE 2421')
+  call append(s:line+3,' * CSE 2421 TuTh 8am')
   call append(s:line+4,' * 0x05194C41')
   call append(s:line+5,' */')
   unlet s:line
