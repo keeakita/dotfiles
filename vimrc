@@ -117,3 +117,8 @@ function FileHeading()
 endfunction
 
 command FileHeading :exec FileHeading()
+
+" LaTeX make
+autocmd FileType tex setlocal makeprg=pdflatex\ --shell-escape\ '%'
+autocmd FileType tex setlocal spell
+autocmd FileType tex setlocal tw=80
