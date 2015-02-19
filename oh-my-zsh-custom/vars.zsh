@@ -31,3 +31,8 @@ if [ -e "$HOME/.rbenv/bin" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
+
+# hub
+if command -v hub > /dev/null ; then
+    eval "$(hub alias -s)"
+fi

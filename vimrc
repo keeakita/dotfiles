@@ -119,6 +119,10 @@ endfunction
 command FileHeading :exec FileHeading()
 
 " LaTeX make
-autocmd FileType tex setlocal makeprg=pdflatex\ --shell-escape\ '%'
+autocmd FileType tex setlocal makeprg=latexmk\ -pdf\ '%'
 autocmd FileType tex setlocal spell
 autocmd FileType tex setlocal tw=80
+
+" Turn on spelling and word wrapping for markdown
+autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal tw=80

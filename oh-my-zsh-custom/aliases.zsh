@@ -18,6 +18,7 @@ alias la="ls -A --color=auto -h --group-directories-first"
 alias ll="ls -lA --color=auto -h --group-directories-first"
 alias du="du -h"
 alias df="df -h"
+alias oggenc="oggenc -q7"
 
 # Productivity
 alias ISolemnlySwearImUpToNoGood='switch_hosts block'
