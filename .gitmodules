@@ -1,27 +1,44 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
 [submodule "vim/bundle/TextObjectify"]
 	path = vim/bundle/TextObjectify
 	url = https://github.com/paradigm/TextObjectify.git
+	branch = master
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+	branch = master
 [submodule "vim/bundle/rails"]
 	path = vim/bundle/rails
 	url = https://github.com/tpope/vim-rails.git
+	branch = master
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+	branch = master
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+	branch = master
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+	branch = master
 [submodule "vim/bundle/vim-bufferline"]
 	path = vim/bundle/vim-bufferline
 	url = https://github.com/bling/vim-bufferline
+	branch = master
+[submodule "vim/bundle/armasm"]
+	path = vim/bundle/armasm
+	url = https://github.com/alisdair/vim-armasm.git
+	branch = master
+[submodule "vim/bundle/AnsiEsc"]
+	path = vim/bundle/AnsiEsc
+	url = https://github.com/vim-scripts/AnsiEsc.vim.git
+	branch = master
