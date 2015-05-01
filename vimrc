@@ -126,3 +126,9 @@ autocmd FileType tex setlocal tw=80
 " Turn on spelling and word wrapping for markdown
 autocmd FileType markdown setlocal spell
 autocmd FileType markdown setlocal tw=80
+
+" When reading from stdin, show ansi escape colors
+autocmd StdinReadPost * AnsiEsc
+
+" Don't prompt for save when switching buffers
+set hidden
