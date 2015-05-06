@@ -36,3 +36,6 @@ fi
 if command -v hub > /dev/null ; then
     eval "$(hub alias -s)"
 fi
+
+# Base16 colors
+source ~/.base16-shell/base16-tomorrow.dark.sh

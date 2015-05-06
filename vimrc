@@ -14,11 +14,13 @@ filetype plugin indent on
 let g:EclimCompletionMethod = 'omnifunc'
 
 " Colors!
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+"if $COLORTERM == 'gnome-terminal'
+"  set t_Co=256
+"endif
 syntax enable
-colo wombat256mod
+set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-tomorrow
 
 " Show line numbers
 set nu
