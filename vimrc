@@ -134,3 +134,12 @@ autocmd StdinReadPost * AnsiEsc
 
 " Don't prompt for save when switching buffers
 set hidden
+
+" Scenario Learning Perl stuff
+autocmd FileType perl setlocal textwidth=78 tabstop=4 shiftwidth=4 matchpairs+=<:>
+iab phbp #! /usr/bin/perl -w
+iab pdbg use Data::Dumper 'Dumper';warn Dumper [];hi
+iab pbmk use Benchmark qw( cmpthese );cmpthese -10, {};0
+iab pusc use Smart::Comments;###
+iab putm use Test::More qw( no_plan );
+command Tidy %! perltidy
