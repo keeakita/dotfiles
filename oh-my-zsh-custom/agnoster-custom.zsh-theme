@@ -61,7 +61,17 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    case "$HOST" in
+        lutra) prompt_segment black blue "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        lupus) prompt_segment black 173 "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        misc) prompt_segment black red "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        mail) prompt_segment black red "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        web) prompt_segment black red "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        leporidae) prompt_segment black 5 "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        cinereus) prompt_segment black 8 "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        cervidae) prompt_segment black green "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+        *) prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m" ;;
+    esac
   fi
 }
 
