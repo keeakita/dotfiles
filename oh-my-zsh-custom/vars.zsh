@@ -40,4 +40,7 @@ fi
 # Base16 colors
 source ~/.base16-shell/base16-tomorrow.dark.sh
 
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+if [ -e "$HOME/perl5/bin" ]; then
+    export PATH="$HOME/perl5/bin:$PATH"
+    eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+fi

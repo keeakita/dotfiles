@@ -39,3 +39,9 @@ alias mvnfast='mvn install -DskipTests -DskipDbDeploy';
 
 # Get size files in just this dir
 alias dirsize='find ./ -maxdepth 1 -exec du -hs {} \; | sort -hr'
+
+# Prevent accidental scp local copies
+alias scp='scp-better'
+
+# Better git diff
+alias gd='git-fulldiff'

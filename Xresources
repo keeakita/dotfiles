@@ -41,7 +41,7 @@ URxvt.scrollBar: false
 ! Fake transparent background
 URxvt*.transparent: true
 ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt*.shading: 20
+URxvt*.shading: 25
 
 ! Make clipboard behave like Konsole
 URxvt.perl-ext-common: default,clipboard,matcher

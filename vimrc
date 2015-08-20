@@ -33,6 +33,7 @@ set softtabstop=4
 
 " Sometimes we only want 2 spaces for tabs
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
+autocmd FileType haml setlocal shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType sass setlocal shiftwidth=2 softtabstop=2
@@ -121,9 +122,11 @@ endfunction
 command FileHeading :exec FileHeading()
 
 " LaTeX make
-autocmd FileType tex setlocal makeprg=latexmk\ -pdf\ '%'
+autocmd FileType tex setlocal makeprg=latexmk\ -xelatex\ -shell-escape\ '%'
 autocmd FileType tex setlocal spell
 autocmd FileType tex setlocal tw=80
+autocmd FileType tex setlocal softtabstop=2
+autocmd FileType tex setlocal shiftwidth=2
 
 " Turn on spelling and word wrapping for markdown
 autocmd FileType markdown setlocal spell
@@ -143,3 +146,14 @@ iab pbmk use Benchmark qw( cmpthese );cmpthese -10, {};0
 iab pusc use Smart::Comments;###
 iab putm use Test::More qw( no_plan );
 command Tidy %! perltidy
+
+iab jclj (function() {"use strict";})();
+
+" Spelling on by default in git commit messages
+autocmd FileType gitcommit setlocal spell
+
+" Mouse for scrolling only in normal mode
+set mouse=n
+nmap <LeftMouse> <nop>
+nmap <2-LeftMouse> <nop>
+nmap <RightMouse> <nop>
