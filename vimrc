@@ -21,6 +21,7 @@ syntax enable
 set background=dark
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
+hi Normal ctermbg=none
 
 " Show line numbers
 set nu
