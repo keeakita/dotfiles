@@ -48,11 +48,6 @@ elif [ -f /etc/redhat-release ]; then
     plugins+=(yum)
 fi
 
-# RVM only if we have it
-if command -v rvm > /dev/null 2>&1; then
-    plguins+=(gem rails3 rvm)
-fi
-
 # Change the custom path for oh-my-zsh to make git management easier
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 DISABLE_AUTO_UPDATE="true"

@@ -37,6 +37,18 @@ if command -v hub > /dev/null ; then
     eval "$(hub alias -s)"
 fi
 
+# ssh-agent
+if command -v ssh-agent > /dev/null ; then
+    # Taken from the Arch wiki. Makes sure only one ssh-agent is running
+    if ! pgrep -u $USER ssh-agent > /dev/null; then
+	ssh-agent > ~/.ssh-agent-thing
+    fi
+    if [[ "$SSH_AGENT_PID" == "" ]]; then
+	eval $(<~/.ssh-agent-thing)
+    fi
+    ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+fi
+
 # Base16 colors
 source ~/.base16-shell/base16-tomorrow.dark.sh
 
@@ -44,3 +56,11 @@ if [ -e "$HOME/perl5/bin" ]; then
     export PATH="$HOME/perl5/bin:$PATH"
     eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 fi
+
+# NVM
+if [ -e "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
+
+export PS2=" 🕴 "
