@@ -52,3 +52,7 @@
 	path = vim/bundle/scratch
 	url = https://github.com/vim-scripts/scratch.vim.git
 	branch = master
+[submodule "vimwiki"]
+	path = vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	branch = master
