@@ -158,3 +158,10 @@ set mouse=n
 nmap <LeftMouse> <nop>
 nmap <2-LeftMouse> <nop>
 nmap <RightMouse> <nop>
+
+" Colors in html
+let html_use_css=1
+let html_no_pre=1
+
+" Let YouCompleteMe use tag files automatically
+let g:ycm_collect_identifiers_from_tags_files = 0
