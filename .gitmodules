@@ -56,3 +56,15 @@
 	path = vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
 	branch = master
+[submodule "vim/bundle/neomake"]
+	path = vim/bundle/neomake
+	url = https://github.com/benekastah/neomake.git
+	branch = master
+[submodule "vim/bundle/vimwiki"]
+	path = vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	branch = master
+[submodule "vim/bundle/nim"]
+	path = vim/bundle/nim
+	url = https://github.com/zah/nim.vim.git
+	branch = master
