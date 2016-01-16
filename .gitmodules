@@ -68,3 +68,7 @@
 	path = vim/bundle/nim
 	url = https://github.com/zah/nim.vim.git
 	branch = master
+[submodule "vim/bundle/swift"]
+	path = vim/bundle/swift
+	url = https://github.com/keith/swift.vim.git
+	branch = master
