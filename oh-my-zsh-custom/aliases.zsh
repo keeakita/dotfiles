@@ -45,3 +45,18 @@ alias scp='scp-better'
 
 # Better git diff
 alias gd='git-fulldiff'
+
+# Make a note with today's date
+alias mknote="vim $(date --iso-8601).markdown"
+
+# Alias vim to neovim
+if command -v nvim > /dev/null ; then
+    alias vim="nvim"
+    alias vimdiff="nvim -d"
+fi
+
+# hub
+if command -v hub > /dev/null ; then
+    eval "$(hub alias -s)"
+fi
+
