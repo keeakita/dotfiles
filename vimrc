@@ -165,3 +165,7 @@ let html_no_pre=1
 
 " Let YouCompleteMe use tag files automatically
 let g:ycm_collect_identifiers_from_tags_files = 0
+
+" Let YouCompleteMe autcomplete plaintext too
+let g:ycm_filetype_blacklist = {}
+

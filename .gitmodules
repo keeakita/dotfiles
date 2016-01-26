@@ -56,3 +56,7 @@
 	path = vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
 	branch = master
+[submodule "vim/bundle/vimwiki"]
+	path = vim/bundle/vimwiki
+	url = https://github.com/vimwiki/vimwiki.git
+	branch = master
