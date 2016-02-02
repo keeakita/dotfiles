@@ -32,11 +32,6 @@ if [ -e "$HOME/.rbenv/bin" ]; then
     eval "$(rbenv init -)"
 fi
 
-# hub
-if command -v hub > /dev/null ; then
-    eval "$(hub alias -s)"
-fi
-
 # ssh-agent
 if command -v ssh-agent > /dev/null ; then
     # Taken from the Arch wiki. Makes sure only one ssh-agent is running
@@ -46,7 +41,6 @@ if command -v ssh-agent > /dev/null ; then
     if [[ "$SSH_AGENT_PID" == "" ]]; then
 	eval $(<~/.ssh-agent-thing)
     fi
-    ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 fi
 
 # Base16 colors
