@@ -28,6 +28,10 @@ if v:version < 703 || (v:version == 703 && ! has("patch584"))
   let g:pathogen_disabled = [ "YouCompleteMe" ]
 endif
 
+" R stuff?
+let maplocalleader = ","
+let mapleader = ";"
+
 " Load plugin manager
 call pathogen#infect()
 call pathogen#helptags()

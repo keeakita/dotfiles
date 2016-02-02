@@ -72,3 +72,7 @@
 	path = vim/bundle/swift
 	url = https://github.com/keith/swift.vim.git
 	branch = master
+[submodule "vim/bundle/Nvim-R"]
+	path = vim/bundle/Nvim-R
+	url = https://github.com/jalvesaq/Nvim-R.git
+	branch = master
