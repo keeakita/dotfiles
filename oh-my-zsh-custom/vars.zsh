@@ -3,8 +3,13 @@
 export SHELL="/bin/zsh"
 
 # Set the default text editor.
-export EDITOR="vim"
-export VISUAL="vim"
+if command -v nvim > /dev/null ; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+else
+    export EDITOR="vim"
+    export VISUAL="vim"
+fi
 
 export BROWSER="firefox"
 
