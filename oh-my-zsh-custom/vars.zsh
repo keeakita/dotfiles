@@ -58,3 +58,5 @@ if [ -e "$HOME/.nvm" ]; then
 fi
 
 export PS2=" 🕴 "
+
+export COWPATH=/usr/share/cows:/usr/local/share/cows
