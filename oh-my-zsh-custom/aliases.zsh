@@ -48,6 +48,7 @@ alias gd='git-fulldiff'
 
 # Make a note with today's date
 alias mknote="vim $(date --iso-8601).markdown"
+alias mkstatnote="vim $(date --iso-8601).Rmd"
 
 # Alias vim to neovim
 if command -v nvim > /dev/null ; then
