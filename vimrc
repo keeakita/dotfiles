@@ -43,14 +43,15 @@ filetype plugin indent on
 let g:EclimCompletionMethod = 'omnifunc'
 
 " Colors!
-"if $COLORTERM == 'gnome-terminal'
-"  set t_Co=256
-"endif
+if !has('nvim') || $NVIM_TUI_ENABLE_TRUE_COLOR!='1'
+    let base16colorspace=256  " Use pallete definition mode (base16-shell)
+endif
+
 syntax enable
 set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-tomorrow
 hi Normal ctermbg=none
+hi Normal guibg=none
 
 " Show line numbers
 set nu
