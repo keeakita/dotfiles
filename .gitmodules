@@ -72,3 +72,7 @@
 	path = vim/bundle/Nvim-R
 	url = https://github.com/jalvesaq/Nvim-R.git
 	branch = master
+[submodule "vim/bundle/vim-pandoc-syntax"]
+	path = vim/bundle/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+	branch = master

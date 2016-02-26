@@ -72,6 +72,10 @@ autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
 " Make vim highlight *.md files as markdown instead of modula
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Higlight pandoc markdown specially
+au BufRead,BufNewFile *.pandoc set filetype=pandoc
+let g:pandoc#syntax#conceal#blacklist = [ "subscript", "superscript" ]
+
 " Line wrapping in code is bad
 set nowrap
 
