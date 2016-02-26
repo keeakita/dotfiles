@@ -186,3 +186,5 @@ let g:ycm_collect_identifiers_from_tags_files = 0
 " Let YouCompleteMe autcomplete plaintext too
 let g:ycm_filetype_blacklist = {}
 
+" pandoc -> LaTeX aligned math environment
+iab panmath $$\begin{aligned}\end{aligned}$$<Up><Up>
