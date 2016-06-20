@@ -1,5 +1,5 @@
-" Defaults only applicable to vim (neovim has these set already)
 if ! has('nvim')
+    " Defaults only applicable to vim (neovim has these set already)
     set autoindent
 
     " Don't need vi compatibility.
@@ -11,14 +11,8 @@ if ! has('nvim')
     " show bar by default (Used for airline)
     set laststatus=2
 
-    " Load syntastic instead of neomake
-    let g:pathogen_disabled = [ "neomake" ]
 else
     " Neovim specific stuff goes here
-
-    " Load neomake instead of syntastic
-    let g:pathogen_disabled = [ "syntastic" ]
-
     " Disable search highlighting
     set nohlsearch
 
@@ -36,18 +30,37 @@ else
     let g:neomake_perl_enabled_makers = ['perlcritic']
 endif
 
-" Disable YouCompleteMe if this version doesn't support it
-if v:version < 703 || (v:version == 703 && ! has("patch584"))
-  let g:pathogen_disabled = [ "YouCompleteMe" ]
+" Load plugin manager
+call plug#begin('~/.vim/plugged')
+
+" Only load YouCompleteMe if this version supports it
+if v:version > 703 || (v:version == 703 && has("patch584"))
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 endif
 
-" R stuff?
-let maplocalleader = ","
-let mapleader = ";"
+" Vim and Neovim differences
+if ! has('nvim')
+    Plug 'scrooloose/syntastic'
+else
+    Plug 'neomake/neomake'
+    Plug 'jalvesaq/Nvim-R'
+endif
 
-" Load plugin manager
-call pathogen#infect()
-call pathogen#helptags()
+" General plugins
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'vim-scripts/Wombat'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-surround'
+
+" Language specific plugins
+Plug 'keith/swift.vim', { 'for': 'swift' }
+Plug 'zah/nim.vim', { 'for': 'nim' }
+Plug 'tpope/vim-rails', { 'for': [ 'rb', 'erb', 'haml' ] }
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'md', 'markdown' ] }
+
+call plug#end()
 
 " Eclim needs this for autocomplete
 filetype plugin indent on
@@ -99,17 +112,8 @@ map <F6> :tabn<enter>
 " Command to insert date
 :command Date :r !date +\%Y-\%m-\%d
 
-" Stuff from that rails vim site
-" http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
-" -------------------------------------------------------------------------------
-" Change which file opens after executing :Rails command
-let g:rails_default_file='config/database.yml'
-
-set cf  " Enable error files & error jumping.
-" -------------------------------------------------------------------------------
-
 " Lets OpenURL stuff happen in the Rails plugin
-:command -bar -nargs=1 OpenURL :!firefox <args>
+:command -bar -nargs=1 OpenURL :!rifle <args>
 
 " Toggle between absolute and relative numbering
 function! NumberToggle()
@@ -136,19 +140,6 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Vim Airline things
 let g:airline_powerline_fonts = 1 " Fancy arrows
-
-" CSE 2421 heading for files
-function FileHeading()
-  let s:line=line(".")
-  call setline(s:line, '/*')
-  call append(s:line,  ' * '.expand('%:t'))
-  call append(s:line+1,' *')
-  call append(s:line+2,' * Created by William Osler on '.strftime("%Y-%m-%d"))
-  call append(s:line+3,' * CSE 2421 TuTh 8am')
-  call append(s:line+4,' * 0x05194C41')
-  call append(s:line+5,' */')
-  unlet s:line
-endfunction
 
 command FileHeading :exec FileHeading()
 
@@ -201,3 +192,7 @@ let g:ycm_filetype_blacklist = {}
 
 " pandoc -> LaTeX aligned math environment
 iab panmath $$\begin{aligned}\end{aligned}$$<Up><Up>
+
+" R stuff
+let maplocalleader = ","
+let mapleader = ";"
