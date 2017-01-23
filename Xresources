@@ -54,5 +54,11 @@ URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 3
 
 ! Font
-URxvt.font: xft:Ubuntu Mono derivative Powerline:size=12,xft:Symbola:size=9
+URxvt.font: xft:Ubuntu Mono:size=12,xft:Symbola:size=9
 
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

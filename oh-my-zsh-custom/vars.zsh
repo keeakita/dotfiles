@@ -13,15 +13,6 @@ fi
 
 export BROWSER="firefox"
 
-# If in a terminal that can use 256 colors, ensure TERM reflects that fact.
-if [ "$TERM" = "xterm" ]
-then
-    export TERM="xterm-256color"
-elif [ "$TERM" = "screen" ]
-then
-    export TERM="screen-256color"
-fi
-
 # set PDF reader
 export PDFREADER="okular"
 export PDFVIEWER="okular"
