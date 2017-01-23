@@ -56,3 +56,9 @@ fi
 export PS2=" 🕴 "
 
 export COWPATH=/usr/share/cows:/usr/local/share/cows
+
+# plenv
+if [ -e "$HOME/.plenv/bin" ]; then
+    export PATH="$HOME/.plenv/bin:$PATH"
+    eval "$(plenv init -)"
+fi

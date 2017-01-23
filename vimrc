@@ -15,6 +15,19 @@ else
     " Neovim specific stuff goes here
     " Disable search highlighting
     set nohlsearch
+
+    let g:neomake_javascript_jshint_maker = {
+        \ 'args': ['--verbose'],
+        \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+        \ }
+    let g:neomake_javascript_enabled_makers = ['jshint']
+
+    let g:neomake_perl_perlcritic_maker = {
+        \ 'exe': 'perlcritic',
+        \ 'args' : ['--quiet', '--nocolor', '--verbose', '\\%f:\\%l:\\%c:(\\%s) \\%m (\\%e)\\n'],
+        \ 'errorformat': '%f:%l:%c:%m,'
+        \ }
+    let g:neomake_perl_enabled_makers = ['perlcritic']
 endif
 
 " Load plugin manager
@@ -148,7 +161,7 @@ autocmd StdinReadPost * AnsiEsc
 set hidden
 
 " Scenario Learning Perl stuff
-autocmd FileType perl setlocal textwidth=78 tabstop=4 shiftwidth=4 matchpairs+=<:>
+autocmd FileType perl setlocal textwidth=78 tabstop=8 shiftwidth=2 matchpairs+=<:> expandtab shiftround
 iab phbp #! /usr/bin/perl -w
 iab pdbg use Data::Dumper 'Dumper';warn Dumper [];hi
 iab pbmk use Benchmark qw( cmpthese );cmpthese -10, {};0
