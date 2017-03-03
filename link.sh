@@ -1,6 +1,8 @@
 #!/bin/sh
 # Backs up old dotfiles and symlinks all the new ones
 
+set -u
+
 BACKUPDIR=$HOME/dotfile_backups # Don't end this with a /
 
 cd $HOME
@@ -16,7 +18,7 @@ for f in $HOME/dotfiles/*; do
         BASENAME=$(echo $f | sed -e s\0$HOME/dotfiles/\0\0;) 
         ORIGFILE=$HOME/.$BASENAME
         BACKUPFILE=$BACKUPDIR/.$BASENAME
-        
+
         if [ ! -L $ORIGFILE ]; then
             mv $ORIGFILE $BACKUPFILE
         fi
@@ -25,3 +27,8 @@ for f in $HOME/dotfiles/*; do
         ln -s -T $f $ORIGFILE
     fi
 done
+
+# Set up a symlink for neovim
+mkdir -p ~/.config
+ln -s -T ~/.vim ~/.config/nvim
+ln -s -T ~/.vimrc ~/.config/nvim/init.vim
