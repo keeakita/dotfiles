@@ -20,7 +20,7 @@ export PDFVIEWER="okular"
 # Set the default image viewer.
 export IMAGEVIEWER="gwenview"
 
-export TZ="America/New_York"
+export TZ=":/etc/localtime"
 
 # rbenv
 if [ -e "$HOME/.rbenv/bin" ]; then
