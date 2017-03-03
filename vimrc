@@ -59,6 +59,9 @@ Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'tpope/vim-rails', { 'for': [ 'rb', 'erb', 'haml' ] }
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'md', 'markdown' ] }
+Plug 'hhvm/vim-hack', { 'for': [ 'php', 'hh', 'hhi' ] }
+Plug 'pangloss/vim-javascript', { 'for': [ 'js', 'jsx', 'html' ] } " Required for vim-jsx
+Plug 'mxw/vim-jsx', { 'for': [ 'js', 'jsx' ] }
 
 call plug#end()
 
@@ -196,3 +199,6 @@ iab panmath $$\begin{aligned}\end{aligned}$$<Up><Up>
 " R stuff
 let maplocalleader = ","
 let mapleader = ";"
+
+" JSX highlighting in JS files
+let g:jsx_ext_required=0
