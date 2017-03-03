@@ -40,7 +40,7 @@ if command -v ssh-agent > /dev/null ; then
 fi
 
 # Base16 colors
-source ~/.base16-shell/base16-tomorrow.dark.sh
+source ~/.base16-shell/scripts/base16-tomorrow-night.sh
 
 if [ -e "$HOME/perl5/bin" ]; then
     export PATH="$HOME/perl5/bin:$PATH"
