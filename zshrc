@@ -27,7 +27,7 @@ ZSH_THEME="agnoster-custom"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
- COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -40,9 +40,7 @@ ZSH_THEME="agnoster-custom"
 plugins=(git tmux vi-mode mvn)
 
 # Add stuff based on distro
-if [ -f /etc/os-release ] && cat /etc/os-release | grep 'ID=ubuntu' > /dev/null 2>&1; then
-    plugins+=(command-not-found debian)
-elif command -v pacman > /dev/null 2>&1; then
+if command -v pacman > /dev/null 2>&1; then
     plugins+=(archlinux systemd)
 elif [ -f /etc/redhat-release ]; then
     plugins+=(yum)

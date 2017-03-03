@@ -60,6 +60,3 @@ fi
 if command -v hub > /dev/null ; then
     eval "$(hub alias -s)"
 fi
-
-# The apt plugin creates an alias for ag on Ubuntu
-unalias ag
