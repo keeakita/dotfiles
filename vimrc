@@ -62,6 +62,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'md', 'markdown' ] }
 Plug 'hhvm/vim-hack', { 'for': [ 'php', 'hh', 'hhi' ] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'js', 'jsx', 'html' ] } " Required for vim-jsx
 Plug 'mxw/vim-jsx', { 'for': [ 'js', 'jsx' ] }
+Plug 'vim-thrift', { 'for': 'thrift' }
 
 call plug#end()
 
@@ -78,7 +79,7 @@ endif
 
 syntax enable
 set background=dark
-colorscheme base16-tomorrow
+colorscheme base16-tomorrow-night
 hi Normal ctermbg=none
 hi Normal guibg=none
 
