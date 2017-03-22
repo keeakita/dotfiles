@@ -203,3 +203,9 @@ let mapleader = ";"
 
 " JSX highlighting in JS files
 let g:jsx_ext_required=0
+
+" Exclude quickfix buffers from :bnext and :bprev
+augroup qf
+    autocmd!
+    autocmd FileType qf set nobuflisted
+augroup END
