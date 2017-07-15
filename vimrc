@@ -30,6 +30,9 @@ else
     let g:neomake_perl_enabled_makers = ['perlcritic']
 endif
 
+" Line wrapping in code is bad
+set nowrap
+
 " Load plugin manager
 call plug#begin('~/.vim/plugged')
 
@@ -106,9 +109,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.pandoc set filetype=pandoc
 let g:pandoc#syntax#conceal#blacklist = [ "subscript", "superscript" ]
 
-" Line wrapping in code is bad
-set nowrap
-
 " Tab key bindings
 map <F5> :tabp<enter>
 map <F6> :tabn<enter>
@@ -143,7 +143,10 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Vim Airline things
-let g:airline_powerline_fonts = 1 " Fancy arrows
+"let g:airline_powerline_fonts = 1 " Fancy arrows
+let g:airline#extensions#tabline#enabled = 1 " Show open buffers
+let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
+let g:airline#extensions#tabline#fnamemod = ':t' " Show only filename for buffers
 
 command FileHeading :exec FileHeading()
 
@@ -207,3 +210,9 @@ let mapleader = ";"
 
 " JSX highlighting in JS files
 let g:jsx_ext_required=0
+
+" Exclude quickfix buffers from :bnext and :bprev
+augroup qf
+    autocmd!
+    autocmd FileType qf set nobuflisted
+augroup END

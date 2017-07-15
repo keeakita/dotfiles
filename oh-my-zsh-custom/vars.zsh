@@ -62,3 +62,7 @@ if [ -e "$HOME/.plenv/bin" ]; then
     export PATH="$HOME/.plenv/bin:$PATH"
     eval "$(plenv init -)"
 fi
+
+# Increase history size
+export HISTSIZE=130000
+export SAVEHIST=130000
