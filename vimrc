@@ -79,7 +79,7 @@ endif
 
 syntax enable
 set background=dark
-colorscheme base16-tomorrow-night
+colorscheme base16-tomorrow
 hi Normal ctermbg=none
 hi Normal guibg=none
 
