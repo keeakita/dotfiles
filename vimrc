@@ -156,7 +156,11 @@ autocmd FileType tex setlocal shiftwidth=2
 
 " Turn on spelling and word wrapping for markdown
 autocmd FileType markdown setlocal spell
-autocmd FileType markdown setlocal tw=80
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal linebreak
+autocmd FileType markdown setlocal nolist
+autocmd FileType markdown setlocal formatoptions-=t
+
 
 " When reading from stdin, show ansi escape colors
 autocmd StdinReadPost * AnsiEsc
