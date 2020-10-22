@@ -52,7 +52,7 @@ endif
 " General plugins
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'vim-scripts/Wombat'
-Plug 'chriskempson/base16-vim'
+Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
@@ -72,17 +72,9 @@ call plug#end()
 " Eclim needs this for autocomplete
 filetype plugin indent on
 
-" Make Eclim and YouCompleteMe play nice
-let g:EclimCompletionMethod = 'omnifunc'
-
-" Colors!
-if !has('nvim') || $NVIM_TUI_ENABLE_TRUE_COLOR!='1'
-    let base16colorspace=256  " Use pallete definition mode (base16-shell)
-endif
-
 syntax enable
 set background=dark
-colorscheme base16-tomorrow
+colorscheme dim
 hi Normal ctermbg=none
 hi Normal guibg=none
 
