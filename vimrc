@@ -10,24 +10,31 @@ if ! has('nvim')
 
     " show bar by default (Used for airline)
     set laststatus=2
-
 else
     " Neovim specific stuff goes here
     " Disable search highlighting
     set nohlsearch
 
-    let g:neomake_javascript_jshint_maker = {
-        \ 'args': ['--verbose'],
-        \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+    let g:neoformat_ruby_rubocop = {
+        \ 'exe': 'rubocop',
+        \ 'args': ['--auto-correct', '--safe-auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
+        \ 'stdin': 1,
+        \ 'stderr': 1
         \ }
-    let g:neomake_javascript_enabled_makers = ['jshint']
+    let g:neoformat_chef_rubocop = {
+        \ 'exe': 'rubocop',
+        \ 'args': ['--auto-correct', '--safe-auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
+        \ 'stdin': 1,
+        \ 'stderr': 1
+        \ }
 
-    let g:neomake_perl_perlcritic_maker = {
-        \ 'exe': 'perlcritic',
-        \ 'args' : ['--quiet', '--nocolor', '--verbose', '\\%f:\\%l:\\%c:(\\%s) \\%m (\\%e)\\n'],
-        \ 'errorformat': '%f:%l:%c:%m,'
-        \ }
-    let g:neomake_perl_enabled_makers = ['perlcritic']
+    let g:neoformat_enabled_python = ['black', 'isort']
+    let g:neoformat_run_all_formatters = 1
+
+    augroup fmt
+      autocmd!
+      au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+    augroup END
 endif
 
 " Line wrapping in code is bad
@@ -36,47 +43,39 @@ set nowrap
 " Load plugin manager
 call plug#begin('~/.vim/plugged')
 
-" Only load YouCompleteMe if this version supports it
-if v:version > 703 || (v:version == 703 && has("patch584"))
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-endif
-
-" Vim and Neovim differences
-if ! has('nvim')
-    Plug 'scrooloose/syntastic'
-else
+" Nvim only
+if has('nvim')
     Plug 'neomake/neomake'
-    Plug 'jalvesaq/Nvim-R'
+    Plug 'sbdchd/neoformat'
 endif
 
 " General plugins
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'vim-scripts/Wombat'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 
 " Language specific plugins
-Plug 'keith/swift.vim', { 'for': 'swift' }
-Plug 'zah/nim.vim', { 'for': 'nim' }
-Plug 'tpope/vim-rails', { 'for': [ 'rb', 'erb', 'haml' ] }
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': [ 'md', 'markdown' ] }
-Plug 'hhvm/vim-hack', { 'for': [ 'php', 'hh', 'hhi' ] }
-Plug 'pangloss/vim-javascript', { 'for': [ 'js', 'jsx', 'html' ] } " Required for vim-jsx
-Plug 'mxw/vim-jsx', { 'for': [ 'js', 'jsx' ] }
-Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
+Plug 'oslerw/vim-chef', { 'for': 'rb' }
+Plug 'rust-lang/rls', { 'for': 'rs' }
 
 call plug#end()
 
-" Eclim needs this for autocomplete
+if has('nvim')
+    call neomake#configure#automake('w')
+endif
+
+" Use per-filetype indent
 filetype plugin indent on
 
 syntax enable
 set background=dark
 colorscheme dim
-hi Normal ctermbg=none
-hi Normal guibg=none
+" Override backgrounds for transparent term
+if has('nvim')
+    hi Normal ctermbg=none
+    hi Normal guibg=none
+endif
 
 " Show line numbers
 set nu
@@ -86,30 +85,20 @@ set shiftwidth=4
 set expandtab
 set softtabstop=4
 
-" Sometimes we only want 2 spaces for tabs
+" 2 space tabs for some languages
+" TODO: Move these to ftplugin?
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
-autocmd FileType haml setlocal shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2
-autocmd FileType sass setlocal shiftwidth=2 softtabstop=2
-autocmd FileType scss setlocal shiftwidth=2 softtabstop=2
+autocmd FileType chef.ruby setlocal shiftwidth=2 softtabstop=2
+autocmd FileType chef.eruby setlocal shiftwidth=2 softtabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 
 " Make vim highlight *.md files as markdown instead of modula
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Higlight pandoc markdown specially
-au BufRead,BufNewFile *.pandoc set filetype=pandoc
-let g:pandoc#syntax#conceal#blacklist = [ "subscript", "superscript" ]
-
-" Tab key bindings
-map <F5> :tabp<enter>
-map <F6> :tabn<enter>
-
 " Command to insert date
 :command Date :r !date +\%Y-\%m-\%d
-
-" Lets OpenURL stuff happen in the Rails plugin
-:command -bar -nargs=1 OpenURL :!rifle <args>
 
 " Toggle between absolute and relative numbering
 function! NumberToggle()
@@ -124,10 +113,10 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " Make tab completion work more like zsh
 set wildmode=longest,list
 
-" In case we forgot to open vim with sudo, we can still save it as root
+" Save file as root
 cmap w!! w !sudo tee > /dev/null %
 
-" Show where we are in the file at the bottom right
+" Show file location at the bottom right
 set ruler
 
 " Highlight trailing whitespace
@@ -135,7 +124,6 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Vim Airline things
-"let g:airline_powerline_fonts = 1 " Fancy arrows
 let g:airline#extensions#tabline#enabled = 1 " Show open buffers
 let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show only filename for buffers
@@ -156,23 +144,11 @@ autocmd FileType markdown setlocal linebreak
 autocmd FileType markdown setlocal nolist
 autocmd FileType markdown setlocal formatoptions-=t
 
-
 " When reading from stdin, show ansi escape colors
 autocmd StdinReadPost * AnsiEsc
 
 " Don't prompt for save when switching buffers
 set hidden
-
-" Scenario Learning Perl stuff
-autocmd FileType perl setlocal textwidth=78 tabstop=8 shiftwidth=2 matchpairs+=<:> expandtab shiftround
-iab phbp #! /usr/bin/perl -w
-iab pdbg use Data::Dumper 'Dumper';warn Dumper [];hi
-iab pbmk use Benchmark qw( cmpthese );cmpthese -10, {};0
-iab pusc use Smart::Comments;###
-iab putm use Test::More qw( no_plan );
-command Tidy %! perltidy
-
-iab jclj (function() {"use strict";})();
 
 " Spelling on by default in git commit messages
 autocmd FileType gitcommit setlocal spell
@@ -186,22 +162,6 @@ nmap <RightMouse> <nop>
 " Colors in html
 let html_use_css=1
 let html_no_pre=1
-
-" Let YouCompleteMe use tag files automatically
-let g:ycm_collect_identifiers_from_tags_files = 0
-
-" Let YouCompleteMe autcomplete plaintext too
-let g:ycm_filetype_blacklist = {}
-
-" pandoc -> LaTeX aligned math environment
-iab panmath $$\begin{aligned}\end{aligned}$$<Up><Up>
-
-" R stuff
-let maplocalleader = ","
-let mapleader = ";"
-
-" JSX highlighting in JS files
-let g:jsx_ext_required=0
 
 " Exclude quickfix buffers from :bnext and :bprev
 augroup qf
