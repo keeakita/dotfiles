@@ -1,3 +1,8 @@
+# History
+export HISTFILE="$HOME"/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=100000
+
 # Set the default text editor.
 if command -v nvim > /dev/null ; then
     export EDITOR="nvim"
@@ -34,13 +39,7 @@ if [ -e "$HOME/.nvm" ]; then
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
-export PS2=" 🕴 "
-
 # rust
 if [ -e "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
-
-# Increase history size
-export HISTSIZE=130000
-export SAVEHIST=130000

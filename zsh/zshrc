@@ -1,0 +1,9 @@
+source "$ZDOTDIR"/thirdparty/git.zsh
+source "$ZDOTDIR"/thirdparty/agnoster.zsh-theme
+
+for ZSH_FILE in "$ZDOTDIR"/*.zsh; do
+    source "$ZSH_FILE"
+done
+
+bindkey '^R' history-incremental-search-backward
+
