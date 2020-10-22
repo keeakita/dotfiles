@@ -1,9 +1,16 @@
 if ! has('nvim')
+    " Force vim to use same paths as nvim
+    " Requires VIMINIT="source ~/.config/nvim/init.vim" set in env
+    set nocompatible
+    " set default 'runtimepath' (without ~/.vim folders)
+    let &runtimepath = printf('%s/vimfiles,%s,%s/vimfiles/after', $VIM, $VIMRUNTIME, $VIM)
+    " what is the name of the directory containing this file?
+    let s:portable = expand('<sfile>:p:h')
+    " add the directory to 'runtimepath'
+    let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable)
+
     " Defaults only applicable to vim (neovim has these set already)
     set autoindent
-
-    " Don't need vi compatibility.
-    set nocompatible
 
     " Fix backspace on some platforms
     set bs=2
@@ -41,7 +48,7 @@ endif
 set nowrap
 
 " Load plugin manager
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Nvim only
 if has('nvim')

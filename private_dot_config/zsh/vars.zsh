@@ -3,6 +3,10 @@ export HISTFILE="$HOME"/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=100000
 
+# Force vim to use nvim paths.
+# See also the top of ~/config/nvim/init.vim
+export VIMINIT="source ~/.config/nvim/init.vim"
+
 # Set the default text editor.
 if command -v nvim > /dev/null ; then
     export EDITOR="nvim"
