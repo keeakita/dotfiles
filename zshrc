@@ -37,14 +37,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux vi-mode mvn systemd)
-
-# Add stuff based on distro
-if command -v pacman > /dev/null 2>&1; then
-    plugins+=(archlinux)
-elif [ -f /etc/redhat-release ]; then
-    plugins+=(yum)
-fi
+plugins=()
 
 # Change the custom path for oh-my-zsh to make git management easier
 ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
@@ -54,5 +47,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize the agnoster theme. Has to be here since themes are the last thing that gets loaded.
 export SEGMENT_SEPARATOR=''
-export PS1="%{%f%b%k%}$(build_prompt)
- 🐺 "
+export PS1='%{%f%b%k%}$(build_prompt)
+ 🐺 '

@@ -1,5 +1,5 @@
 # cd into directory just by directory name
-setopt autocd
+unsetopt autocd
 
 # prompt to correct typos
 setopt correct
@@ -33,3 +33,9 @@ setopt correct
 
 # Don't try to autocomplete a home directory
 setopt nocdablevars
+
+# If a glob fails, error out
+setopt nomatch
+
+# vi editing
+bindkey -v
