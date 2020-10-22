@@ -2,3 +2,4 @@ vim/.netrwhist
 vim/spell
 vim/plugged
 vim/init.vim
+vim/autoload/plug.vim.old
