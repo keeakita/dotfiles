@@ -49,16 +49,3 @@ scp-better() {
     SCP=`where scp | grep -v alias | head -n1`
     $SCP $@
 }
-
-# https://stackoverflow.com/questions/855767/can-i-use-git-diff-on-untracked-files/4864668#4864668
-git-fulldiff() {
-    if test "$#" = 0; then
-        (
-            git diff --color
-            git ls-files --others --exclude-standard |
-                while read -r i; do git diff --color -- /dev/null "$i"; done
-        ) | `git config --get core.pager`
-    else
-        git diff "$@"
-    fi
-}
