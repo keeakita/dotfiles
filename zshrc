@@ -51,6 +51,3 @@ ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=$PATH:/usr/lib/qt4/bin:/usr/local/heroku/bin:/home/william/.rvm/gems/ruby-1.9.3-p327/bin:/home/william/.rvm/gems/ruby-1.9.3-p327@global/bin:/home/william/.rvm/rubies/ruby-1.9.3-p327/bin:/home/william/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/android-sdk/platform-tools:/usr/bin/core_perl

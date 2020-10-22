@@ -39,9 +39,6 @@ if command -v ssh-agent > /dev/null ; then
     fi
 fi
 
-# Base16 colors
-source ~/.base16-shell/scripts/base16-tomorrow-night.sh
-
 if [ -e "$HOME/perl5/bin" ]; then
     export PATH="$HOME/perl5/bin:$PATH"
     eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
@@ -61,6 +58,11 @@ export COWPATH=/usr/share/cows:/usr/local/share/cows
 if [ -e "$HOME/.plenv/bin" ]; then
     export PATH="$HOME/.plenv/bin:$PATH"
     eval "$(plenv init -)"
+fi
+
+# rust
+if [ -e "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # Increase history size
