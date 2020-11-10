@@ -20,6 +20,10 @@ export BROWSER="firefox"
 
 export TZ=":/etc/localtime"
 
+if [ -e "$HOME/.local/bin" ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 # rbenv
 if [ -e "$HOME/.rbenv/bin" ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
