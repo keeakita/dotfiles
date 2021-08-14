@@ -65,6 +65,7 @@ Plug 'tpope/vim-surround'
 " Language specific plugins
 Plug 'oslerw/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
+Plug 'LnL7/vim-nix'
 
 call plug#end()
 
