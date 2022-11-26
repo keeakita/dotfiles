@@ -1,0 +1,40 @@
+[data]
+background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
+#outputs = """
+#output DP-2 pos 0 0
+#output HDMI-A-1 pos 3840 0
+#"""
+outputs = ""
+output_even = "DP-2"
+output_odd = "HDMI-A-1"
+flavours_i3status = """
+## Base16 Darktooth
+# Author: Jason Milkins (https://github.com/jasonm23)
+#
+# You can use these variables anywhere in the i3status configuration file.
+
+general {
+       color_good = "#95C085"
+       color_bad = "#FB543F"
+       color_degraded = "#FAC03B"
+}"""
+flavours_mako = """
+## Base16 Darktooth
+# Author: Jason Milkins (https://github.com/jasonm23)
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#1D2021
+text-color=#A89984
+border-color=#0D6678
+
+[urgency=low]
+background-color=#1D2021
+text-color=#FAC03B
+border-color=#0D6678
+
+[urgency=high]
+background-color=#1D2021
+text-color=#FB543F
+border-color=#0D6678"""
+terminal_font = "12.0"
