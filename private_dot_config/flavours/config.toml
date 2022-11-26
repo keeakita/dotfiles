@@ -19,10 +19,11 @@ template = "waybar"
 # Waybar uses a separate color file, so we can safely rewrite the whole file
 rewrite = true
 
-[[items]]
-file = "~/.config/swaylock/config"
-template = "swaylock"
-rewrite = false
+## Broken; template repo is missing
+# [[items]]
+# file = "~/.config/swaylock/config"
+# template = "swaylock"
+# rewrite = false
 
 [[items]]
 file = "~/.config/alacritty/colors.yml"
