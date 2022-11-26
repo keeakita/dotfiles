@@ -1,0 +1,41 @@
+[data]
+background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
+outputs = """
+output DP-2 pos 0 0
+output HDMI-A-1 pos 3840 0
+"""
+output_even = "DP-2"
+output_odd = "HDMI-A-1"
+flavours_i3status = """
+## Base16 Horizon Dark
+# Author: Michaël Ball (http://github.com/michael-ball/)
+#
+# You can use these variables anywhere in the i3status configuration file.
+
+general {
+       color_good = "#EFAF8E"
+       color_bad = "#E93C58"
+       color_degraded = "#EFB993"
+}
+"""
+flavours_mako = """
+## Base16 Horizon Dark
+# Author: Michaël Ball (http://github.com/michael-ball/)
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#1C1E26
+text-color=#CBCED0
+border-color=#DF5273
+
+[urgency=low]
+background-color=#1C1E26
+text-color=#EFB993
+border-color=#DF5273
+
+[urgency=high]
+background-color=#1C1E26
+text-color=#E93C58
+border-color=#DF5273
+"""
+terminal_font = "17.0"

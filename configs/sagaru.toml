@@ -1,12 +1,8 @@
 [data]
 background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
-#outputs = """
-#output DP-2 pos 0 0
-#output HDMI-A-1 pos 3840 0
-#"""
 outputs = ""
-output_even = "DP-2"
-output_odd = "HDMI-A-1"
+output_even = "DP-3"
+output_odd = "eDP-1"
 flavours_i3status = """
 ## Base16 Darktooth
 # Author: Jason Milkins (https://github.com/jasonm23)

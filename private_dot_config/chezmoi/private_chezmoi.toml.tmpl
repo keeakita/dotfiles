@@ -1,0 +1,6 @@
+{{ $hostfile := (printf "%s/configs/%s.toml" .chezmoi.sourceDir .chezmoi.hostname) }}
+{{ if stat $hostfile }}
+  {{ include $hostfile }}
+{{ else }}
+  {{ include (printf "%s/configs/default.toml" .chezmoi.sourceDir )}}
+{{ end }}
