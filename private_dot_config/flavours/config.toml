@@ -1,0 +1,46 @@
+# Commands go through zsh
+shell = "zsh -c '{}'"
+
+# Sway supports the default '#' comments, so it can be ommited
+# 'rewrite' is also ommited, as it defaults to false
+[[items]]
+file = "~/.config/sway/config.d/colors"
+template = "sway"
+subtemplate = "colors"
+rewrite = true
+hook = "swaymsg reload"
+# Swaymsg reload temporarily freezes input, so it's marked as not light
+light = false
+
+# This one uses waybar 'default' subtemplate, so it can be ommited
+[[items]]
+file = "~/.config/waybar/colors.css"
+template = "waybar"
+# Waybar uses a separate color file, so we can safely rewrite the whole file
+rewrite = true
+
+[[items]]
+file = "~/.config/swaylock/config"
+template = "swaylock"
+rewrite = false
+
+[[items]]
+file = "~/.config/alacritty/colors.yml"
+template = "alacritty"
+rewrite = true
+
+[[items]]
+file = "~/.vscode/extensions/flavour/theme.json"
+template = "vscode"
+rewrite = true
+
+
+[[items]]
+file = "~/.config/mako/config"
+template = "mako"
+rewrite = false
+
+[[items]]
+file = "~/.config/i3status/config"
+template = "i3status"
+rewrite = false
