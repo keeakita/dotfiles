@@ -1,0 +1,43 @@
+[data]
+background = "~/Pictures/Backgrounds/snowfox_wolf.png"
+outputs = """
+output eDP-1 resolution 3840x2400 position 0,0
+output DP-3  resolution 2560x1440 position 1920,20
+"""
+output_even = "DP-3"
+output_odd = "eDP-1"
+flavours_i3status = """
+## Base16 Horizon Dark
+# Author: Michaël Ball (http://github.com/michael-ball/)
+#
+# You can use these variables anywhere in the i3status configuration file.
+
+general {
+       color_good = "#EFAF8E"
+       color_bad = "#E93C58"
+       color_degraded = "#EFB993"
+}
+"""
+flavours_mako = """
+## Base16 Horizon Dark
+# Author: Michaël Ball (http://github.com/michael-ball/)
+#
+# You can use these variables anywhere in the mako configuration file.
+
+background-color=#1C1E26
+text-color=#CBCED0
+border-color=#DF5273
+
+[urgency=low]
+background-color=#1C1E26
+text-color=#EFB993
+border-color=#DF5273
+
+[urgency=high]
+background-color=#1C1E26
+text-color=#E93C58
+border-color=#DF5273
+"""
+terminal_font = "12.0"
+
+
