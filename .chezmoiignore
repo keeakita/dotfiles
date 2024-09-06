@@ -5,11 +5,19 @@ configs/**
 .config/nvim/autoload/plug.vim.old
 .config/zsh/dot_zcompdump
 
+{{- if not .graphical.enable }}
+.config/alacritty/**
+{{- end}}
+
 {{- if ne .chezmoi.os "darwin" }}
+{{- if not .graphical.enable }}
 .aerospace.toml
+{{- end }}
 {{- else if ne .chezmoi.os "linux"}}
+{{- if not .graphical.enable }}
 .config/i3status/**
 .config/mako/**
 .config/sway/**
 .config/swaylock/**
+{{- end }}
 {{- end }}

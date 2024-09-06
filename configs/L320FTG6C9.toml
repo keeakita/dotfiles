@@ -1,12 +1,7 @@
 [data]
 sentry = true
-terminal_font = "12.0"
 
-# Unused on macOS system
-background = ""
-outputs = ""
-output_even = ""
-output_odd = ""
-flavours_i3status = ""
-flavours_mako = ""
+[data.graphical]
+enable = true
+terminal_font = "12.0"
 

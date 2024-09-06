@@ -21,19 +21,19 @@ set $lock swaylock -f
 
 ### Output configuration
 #
-{{ .outputs }}
-output * bg {{ .background }} fill
+{{ .graphical.outputs }}
+output * bg {{ .graphical.background }} fill
 
-workspace 1 output {{ .output_odd }}
-workspace 2 output {{ .output_even }}
-workspace 3 output {{ .output_odd }}
-workspace 4 output {{ .output_even }}
-workspace 5 output {{ .output_odd }}
-workspace 6 output {{ .output_even }}
-workspace 7 output {{ .output_odd }}
-workspace 8 output {{ .output_even }}
-workspace 9 output {{ .output_odd }}
-workspace 10 output {{ .output_even }}
+workspace 1 output {{ .graphical.output_odd }}
+workspace 2 output {{ .graphical.output_even }}
+workspace 3 output {{ .graphical.output_odd }}
+workspace 4 output {{ .graphical.output_even }}
+workspace 5 output {{ .graphical.output_odd }}
+workspace 6 output {{ .graphical.output_even }}
+workspace 7 output {{ .graphical.output_odd }}
+workspace 8 output {{ .graphical.output_even }}
+workspace 9 output {{ .graphical.output_odd }}
+workspace 10 output {{ .graphical.output_even }}
 
 ### Idle configuration
 exec swayidle -w \
