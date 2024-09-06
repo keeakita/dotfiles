@@ -28,3 +28,7 @@ if command -v nvim > /dev/null ; then
     alias vim="nvim"
     alias vimdiff="nvim -d"
 fi
+
+if command -v cargo-rambley > /dev/null ; then
+    alias cargo="cargo rambley"
+fi

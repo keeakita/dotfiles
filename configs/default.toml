@@ -1,4 +1,5 @@
 [data]
+sentry = false
 background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
 outputs = ""
 output_even = "DP-1"

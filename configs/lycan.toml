@@ -1,4 +1,5 @@
 [data]
+sentry = false
 background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
 outputs = """
 output DP-2 pos 0 0 scale 1.25

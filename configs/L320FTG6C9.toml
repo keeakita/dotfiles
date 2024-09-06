@@ -1,5 +1,6 @@
 [data]
-terminal_font = "14.0"
+sentry = true
+terminal_font = "12.0"
 
 # Unused on macOS system
 background = ""
