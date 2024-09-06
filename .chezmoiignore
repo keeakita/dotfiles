@@ -1,6 +1,15 @@
-configs/
-private_dot_config/nvim/dot_netrwhist
-private_dot_config/nvim/spell
-private_dot_config/nvim/plugged
-private_dot_config/nvim/autoload/plug.vim.old
-private_dot_config/zsh/dot_zcompdump
+configs/**
+.config/nvim/dot_netrwhist
+.config/nvim/spell
+.config/nvim/plugged
+.config/nvim/autoload/plug.vim.old
+.config/zsh/dot_zcompdump
+
+{{- if ne .chezmoi.os "darwin" }}
+.aerospace.toml
+{{- else if ne .chezmoi.os "linux"}}
+.config/i3status/**
+.config/mako/**
+.config/sway/**
+.config/swaylock/**
+{{- end }}

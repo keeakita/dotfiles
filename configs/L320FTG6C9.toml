@@ -1,0 +1,11 @@
+[data]
+terminal_font = "14.0"
+
+# Unused on macOS system
+background = ""
+outputs = ""
+output_even = ""
+output_odd = ""
+flavours_i3status = ""
+flavours_mako = ""
+
