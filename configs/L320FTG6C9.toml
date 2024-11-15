@@ -3,5 +3,5 @@ sentry = true
 
 [data.graphical]
 enable = true
-terminal_font = "12.0"
+terminal_font = "13.0"
 
