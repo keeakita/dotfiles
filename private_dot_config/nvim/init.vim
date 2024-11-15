@@ -38,10 +38,10 @@ else
     let g:neoformat_enabled_python = ['black', 'isort']
     let g:neoformat_run_all_formatters = 1
 
-    augroup fmt
-      autocmd!
-      au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-    augroup END
+    " augroup fmt
+    "   autocmd!
+    "   au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+    " augroup END
 endif
 
 " Line wrapping in code is bad
@@ -66,6 +66,7 @@ Plug 'tpope/vim-surround'
 Plug 'oslerw/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
 Plug 'LnL7/vim-nix'
+Plug 'keeakita/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
 
 call plug#end()
 
