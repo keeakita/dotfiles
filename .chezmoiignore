@@ -11,6 +11,7 @@ configs/**
 {{- end }}
 {{- if or (not .graphical.enable) (ne .chezmoi.os "darwin") }}
 .aerospace.toml
+.config/karibiner/**
 {{- end }}
 {{- if or (not .graphical.enable) (ne .chezmoi.os "linux") }}
 .config/i3status/**
