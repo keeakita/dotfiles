@@ -1,0 +1,61 @@
+import = ["/Users/keea/.config/alacritty/colors.yml"]
+live_config_reload = true
+
+[cursor]
+unfocused_hollow = true
+vi_mode_style = "Beam"
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[font]
+size = {{ .graphical.terminal_font }}
+
+[font.normal]
+family = "Fira Code"
+style = "Regular"
+
+[[hints.enabled]]
+{{- if eq .chezmoi.os "darwin" }}
+command = "open"
+{{- else if eq .chezmoi.os "windows" }}
+command = "explorer.exe"
+{{- else }}
+command = "xdg-open"
+{{ end }}
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|https:|http:|file:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+{{- if .sentry }}
+[[hints.enabled]]
+post_processing = true
+regex = "#([A-za-z0-9]|-)+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.command]
+program = "/Users/keea/.config/alacritty/slack.sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+{{ end }}
+
+[scrolling]
+history = 10000
+
+[window]
+decorations_theme_variant = "dark"
+dynamic_title = true
+opacity = 0.9
