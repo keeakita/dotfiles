@@ -61,12 +61,15 @@ Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Language specific plugins
 Plug 'oslerw/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
 Plug 'LnL7/vim-nix'
 Plug 'keeakita/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
+Plug 'google/vim-jsonnet', { 'for': ['jsonnet'] }
 
 call plug#end()
 
