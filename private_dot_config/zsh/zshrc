@@ -1,6 +1,20 @@
+# zmodload zsh/zprof
+
 for ZSH_FILE in "$ZDOTDIR"/*.zsh; do
     source "$ZSH_FILE"
 done
 
 bindkey '^R' history-incremental-search-backward
 
+eval "$(direnv hook zsh)"
+
+# Refresh zcompdump only once every 24 hours
+zstyle :compinstall filename "$HOME"/.zshrc
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
+
+# zprof
