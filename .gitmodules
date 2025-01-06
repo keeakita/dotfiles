@@ -1,0 +1,3 @@
+[submodule "private_dot_config/zsh/thirdparty/external_powerlevel10k"]
+	path = private_dot_config/zsh/thirdparty/external_powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
