@@ -13,9 +13,8 @@ for ZSH_FILE in "$ZDOTDIR"/*.zsh; do
     source "$ZSH_FILE"
 done
 
-#bindkey '^R' history-incremental-search-backward
-
-eval "$(direnv hook zsh)"
+# Superceded by p10k
+# bindkey '^R' history-incremental-search-backward
 
 # Refresh zcompdump only once every 24 hours
 # zstyle :compinstall filename "$HOME"/.zshrc
