@@ -19,7 +19,6 @@ setopt nobgnice
 # Disable flow control. Specifically, ensure that ctrl-s does not stop
 # terminal flow so that it can be used in other programs (such as Vim).
 setopt noflowcontrol
-stty -ixon
 
 # don't record repeated things in history
 setopt histignoredups
