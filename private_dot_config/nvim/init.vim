@@ -137,6 +137,8 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Vim Airline things
 let g:airline_extensions = []
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1 " Show open buffers
 let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show only filename for buffers
