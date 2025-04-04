@@ -4,4 +4,5 @@ sentry = true
 [data.graphical]
 enable = true
 terminal_font = "13.0"
+alacritty_theme = "duskfox"
 

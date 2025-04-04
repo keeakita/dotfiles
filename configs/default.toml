@@ -4,6 +4,7 @@ sentry = false
 # Not used by default, but kept here for posterity
 [data.graphical]
 enable = false
+alacritty_theme = ""
 background = ""
 outputs = ""
 output_even = ""

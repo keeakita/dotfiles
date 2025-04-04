@@ -3,6 +3,7 @@ sentry = false
 
 [data.graphical]
 enable = true
+alacritty_theme = "nordfox"
 background = "~/Pictures/Backgrounds/heavy_is_the_crown.png"
 outputs = ""
 output_even = "DP-3"

@@ -1,3 +1,6 @@
 [submodule "private_dot_config/zsh/thirdparty/external_powerlevel10k"]
 	path = private_dot_config/zsh/thirdparty/external_powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "submodules/alacritty-theme"]
+	path = submodules/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme.git

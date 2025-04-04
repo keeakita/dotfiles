@@ -1,4 +1,5 @@
 configs/**
+submodules/**
 .config/nvim/dot_netrwhist
 .config/nvim/spell
 .config/nvim/plugged

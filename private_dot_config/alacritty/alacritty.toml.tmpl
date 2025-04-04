@@ -1,5 +1,6 @@
-import = ["/Users/keea/.config/alacritty/colors.yml"]
+[general]
 live_config_reload = true
+import = ["{{ .chezmoi.workingTree }}/submodules/alacritty-theme/themes/{{ .graphical.alacritty_theme }}.toml"]
 
 [cursor]
 unfocused_hollow = true
