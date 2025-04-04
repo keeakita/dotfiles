@@ -1,7 +1,10 @@
+# vi bindings
+bindkey -v
+
 # prepend sudo
 bindkey "^S" prepend-sudo
 
 # prepend vim
 bindkey "^V" prepend-vim
 
-bindkey "^R" history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward
