@@ -1,14 +1,16 @@
 [data]
 sentry = false
+nvim_theme = "nordfox"
+airline_theme = "bubblegum"
 
 # Not used by default, but kept here for posterity
 [data.graphical]
 enable = false
 alacritty_theme = ""
 background = ""
-outputs = ""
-output_even = ""
-output_odd = ""
 flavours_i3status = ""
 flavours_mako = ""
+output_even = ""
+output_odd = ""
+outputs = ""
 terminal_font = ""

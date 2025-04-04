@@ -57,9 +57,10 @@ if has('nvim')
 endif
 
 " General plugins
+Plug 'EdenEast/nightfox.nvim'
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -68,8 +69,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'oslerw/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
 Plug 'LnL7/vim-nix'
-Plug 'keeakita/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
+Plug 'hashivim/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
 Plug 'google/vim-jsonnet', { 'for': ['jsonnet'] }
+Plug 'nextmn/vim-yaml-jinja', { 'for': ['yaml', 'yaml-jinja'] }
 
 call plug#end()
 
@@ -82,7 +84,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-colorscheme dim
+colorscheme {{ .nvim_theme }}
 " Override backgrounds for transparent term
 if has('nvim')
     hi Normal ctermbg=none
@@ -139,6 +141,7 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 let g:airline_extensions = []
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
+let g:airline_theme='{{ .airline_theme }}'
 let g:airline#extensions#tabline#enabled = 1 " Show open buffers
 let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show only filename for buffers

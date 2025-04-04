@@ -1,5 +1,7 @@
 [data]
 sentry = true
+nvim_theme = "duskfox"
+airline_theme = "kolor"
 
 [data.graphical]
 enable = true

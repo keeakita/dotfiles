@@ -39,3 +39,5 @@ background-color=#1D2021
 text-color=#FB543F
 border-color=#0D6678"""
 terminal_font = "12.0"
+nvim_theme = "nordfox"
+airline_theme = "bubblegum"
