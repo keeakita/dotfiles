@@ -54,19 +54,18 @@ call plug#begin('~/.config/nvim/plugged')
 if has('nvim')
     Plug 'neomake/neomake'
     Plug 'sbdchd/neoformat'
+    Plug 'nvim-lualine/lualine.nvim'
 endif
 
 " General plugins
 Plug 'EdenEast/nightfox.nvim'
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Language specific plugins
-Plug 'oslerw/vim-chef', { 'for': 'rb' }
+Plug 'keeakita/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
 Plug 'LnL7/vim-nix'
 Plug 'hashivim/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
@@ -137,14 +136,17 @@ set ruler
 highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
-" Vim Airline things
-let g:airline_extensions = []
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_theme='{{ .airline_theme }}'
-let g:airline#extensions#tabline#enabled = 1 " Show open buffers
-let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer numbers
-let g:airline#extensions#tabline#fnamemod = ':t' " Show only filename for buffers
+" Lualine things
+lua << END
+require('lualine').setup {
+    options = {
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        theme = 'auto',
+            icons_enabled = false,
+    },
+}
+END
 
 command FileHeading :exec FileHeading()
 
