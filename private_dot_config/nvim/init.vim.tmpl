@@ -28,12 +28,6 @@ else
         \ 'stdin': 1,
         \ 'stderr': 1
         \ }
-    let g:neoformat_chef_rubocop = {
-        \ 'exe': 'rubocop',
-        \ 'args': ['--auto-correct', '--safe-auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
-        \ 'stdin': 1,
-        \ 'stderr': 1
-        \ }
 
     let g:neoformat_enabled_python = ['black', 'isort']
     let g:neoformat_run_all_formatters = 1
@@ -65,7 +59,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Language specific plugins
-Plug 'keeakita/vim-chef', { 'for': 'rb' }
 Plug 'rust-lang/rls', { 'for': 'rs' }
 Plug 'LnL7/vim-nix'
 Plug 'hashivim/vim-terraform', { 'for': ['json', 'hcl', 'terraform'] }
@@ -103,8 +96,6 @@ set softtabstop=4
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2
-autocmd FileType chef.ruby setlocal shiftwidth=2 softtabstop=2
-autocmd FileType chef.eruby setlocal shiftwidth=2 softtabstop=2
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2
 
 " Make vim highlight *.md files as markdown instead of modula
