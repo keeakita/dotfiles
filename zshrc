@@ -37,7 +37,7 @@ ZSH_THEME="blinks_custom"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git tmux vi-mode)
+plugins=(git tmux vi-mode mvn)
 
 # Add stuff based on distro
 if [ -f /etc/os-release ] && cat /etc/os-release | grep 'ID=ubuntu' > /dev/null 2>&1; then
