@@ -1,4 +1,29 @@
-" Disable YouCompleteMe if our version doesn't support it
+" Defaults only applicable to vim (neovim has these set already)
+if ! has('nvim')
+    set autoindent
+
+    " Don't need vi compatibility.
+    set nocompatible
+
+    " Fix backspace on some platforms
+    set bs=2
+
+    " show bar by default (Used for airline)
+    set laststatus=2
+
+    " Load syntastic instead of neomake
+    let g:pathogen_disabled = [ "neomake" ]
+else
+    " Neovim specific stuff goes here
+
+    " Load neomake instead of syntastic
+    let g:pathogen_disabled = [ "syntastic" ]
+
+    " Disable search highlighting
+    set nohlsearch
+endif
+
+" Disable YouCompleteMe if this version doesn't support it
 if v:version < 703 || (v:version == 703 && ! has("patch584"))
   let g:pathogen_disabled = [ "YouCompleteMe" ]
 endif
@@ -27,7 +52,6 @@ hi Normal ctermbg=none
 set nu
 
 " General Indentation Settings
-set autoindent
 set shiftwidth=4
 set expandtab
 set softtabstop=4
@@ -56,18 +80,6 @@ map <F6> :tabn<enter>
 " Stuff from that rails vim site
 " http://biodegradablegeek.com/2007/12/using-vim-as-a-complete-ruby-on-rails-ide/
 " -------------------------------------------------------------------------------
-filetype on  " Automatically detect file types.
-set nocompatible  " We don't want vi compatibility.
-
-" Add recently accessed projects menu (project plugin)
-set viminfo^=!
-
-" Minibuffer Explorer Settings
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
 
@@ -87,9 +99,6 @@ function! NumberToggle()
 endfunc
 nnoremap <C-n> :call NumberToggle()<cr>
 
-" Fix backspace on some platforms
-set bs=2
-
 " Make tab completion work more like zsh
 set wildmode=longest,list
 
@@ -105,7 +114,6 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Vim Airline things
 let g:airline_powerline_fonts = 1 " Fancy arrows
-set laststatus=2 "show bar by default
 
 " CSE 2421 heading for files
 function FileHeading()
