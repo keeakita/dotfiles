@@ -94,3 +94,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Show where we are in the file at the bottom right
 set ruler
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
