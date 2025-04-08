@@ -25,3 +25,9 @@ export PDFVIEWER="okular"
 export IMAGEVIEWER="gwenview"
 
 export TZ="America/New_York"
+
+# rbenv
+if [ -e "$HOME/.rbenv/bin" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
